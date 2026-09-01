@@ -1,24 +1,4 @@
 import os
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
-
-# ... any other imports you have ...
-
-app = FastAPI()   # <-- app must be created FIRST
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://smart-canteen-liart.vercel.app",
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
 from contextlib import asynccontextmanager
 from typing import List, Optional
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, status
@@ -45,7 +25,6 @@ ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Initialize SQLite database and seed 12 canteen items if empty
     init_db()
     seed_database(force_refresh=False)
     yield
@@ -58,11 +37,11 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS configuration
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
+    "https://smart-canteen-liart.vercel.app",
 ]
 
 app.add_middleware(
@@ -72,6 +51,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 
 def verify_admin(
