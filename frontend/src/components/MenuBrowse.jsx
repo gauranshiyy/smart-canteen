@@ -37,7 +37,7 @@ export default function MenuBrowse({ onOrder }) {
     setLoading(true)
     setError(null)
     try {
-      const response = await fetch('http://localhost:8000/menu')
+      const response = await fetch(API_URL + '/menu')
       if (!response.ok) {
         throw new Error(`Server returned HTTP ${response.status}`)
       }
@@ -67,7 +67,7 @@ export default function MenuBrowse({ onOrder }) {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/recommend', {
+      const response = await fetch(API_URL + '/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

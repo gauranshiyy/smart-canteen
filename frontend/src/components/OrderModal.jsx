@@ -37,7 +37,7 @@ export default function OrderModal({ isOpen, onClose, item, onOrderPlaced }) {
     setError(null)
 
     try {
-      const res = await fetch('http://localhost:8000/orders', {
+      const res = await fetch(API_URL + '/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

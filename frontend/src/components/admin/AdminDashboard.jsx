@@ -46,7 +46,7 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch('http://localhost:8000/menu')
+      const res = await fetch(API_URL + '/menu')
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
       setItems(data)
@@ -60,7 +60,7 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
   // Poll orders count for tab badge
   const checkPendingOrders = async () => {
     try {
-      const res = await fetch('http://localhost:8000/orders')
+      const res = await fetch(API_URL + '/orders')
       if (res.ok) {
         const orders = await res.json()
         const unActioned = orders.filter((o) => o.status === 'placed').length
@@ -88,7 +88,7 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
     )
 
     try {
-      const res = await fetch(`http://localhost:8000/admin/menu/${item.id}`, {
+      const res = await fetch(API_URL + `/admin/menu/${item.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -115,8 +115,8 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
   const handleSaveItem = async (formData, itemId) => {
     const isEdit = !!itemId
     const url = isEdit
-      ? `http://localhost:8000/admin/menu/${itemId}`
-      : 'http://localhost:8000/admin/menu'
+      ? API_URL + `/admin/menu/${itemId}`
+      : API_URL + '/admin/menu'
     const method = isEdit ? 'PUT' : 'POST'
 
     const res = await fetch(url, {
@@ -147,7 +147,7 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
   // Delete Item
   const handleDeleteItem = async (itemId) => {
     try {
-      const res = await fetch(`http://localhost:8000/admin/menu/${itemId}`, {
+      const res = await fetch(API_URL + `/admin/menu/${itemId}`, {
         method: 'DELETE',
         headers: {
           'X-Admin-Password': adminPassword,

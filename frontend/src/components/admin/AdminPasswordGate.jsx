@@ -17,7 +17,7 @@ export default function AdminPasswordGate({ onAuthenticated, onCancel }) {
     setError(null)
 
     try {
-      const res = await fetch('http://localhost:8000/admin/verify', {
+      const res = await fetch(API_URL + '/admin/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

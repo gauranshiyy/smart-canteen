@@ -23,7 +23,7 @@ export default function OrderTracker({ activeOrderIds, onDismissOrder }) {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch('http://localhost:8000/orders')
+      const res = await fetch(API_URL + '/orders')
       if (!res.ok) return
       const data = await res.json()
 

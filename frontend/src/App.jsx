@@ -115,7 +115,7 @@ export default function App() {
     const startTime = performance.now()
 
     try {
-      const res = await fetch('http://localhost:8000/', {
+      const res = await fetch(API_URL + '/', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

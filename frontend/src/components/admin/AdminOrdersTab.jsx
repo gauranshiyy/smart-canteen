@@ -28,7 +28,7 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
     if (!isBackground) setLoading(true)
     setError(null)
     try {
-      const res = await fetch('http://localhost:8000/orders')
+      const res = await fetch(API_URL + '/orders')
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
       setOrders(data)
@@ -59,7 +59,7 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
     )
 
     try {
-      const res = await fetch(`http://localhost:8000/orders/${orderId}/status`, {
+      const res = await fetch(API_URL + `/orders/${orderId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -40,7 +40,7 @@ export default function MenuSection() {
   const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
-    fetch('http://localhost:8000/menu')
+    fetch(API_URL + '/menu')
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         return res.json()
