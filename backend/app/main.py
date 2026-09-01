@@ -1,4 +1,16 @@
 import os
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://smart-canteen-liart.vercel.app",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 from contextlib import asynccontextmanager
 from typing import List, Optional
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, status
