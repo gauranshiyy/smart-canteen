@@ -1,5 +1,11 @@
 import os
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
+
+# ... any other imports you have ...
+
+app = FastAPI()   # <-- app must be created FIRST
 
 app.add_middleware(
     CORSMiddleware,
@@ -11,6 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 from contextlib import asynccontextmanager
 from typing import List, Optional
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, status
