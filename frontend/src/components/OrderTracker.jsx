@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useEffect } from 'react'
 import {
   Clock,
@@ -101,11 +102,10 @@ export default function OrderTracker({ activeOrderIds, onDismissOrder }) {
             return (
               <div
                 key={order.id}
-                className={`bg-white rounded-2xl border p-6 sm:p-7 transition-all ${
-                  isReady
+                className={`bg-white rounded-2xl border p-6 sm:p-7 transition-all ${isReady
                     ? 'border-amber-400 shadow-[0_4px_25px_rgba(245,158,11,0.15)] ring-2 ring-amber-400/30'
                     : 'border-[#E8E4DA] shadow-xs'
-                }`}
+                  }`}
               >
                 {/* Order Meta Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[#EFECE6]">
@@ -127,15 +127,14 @@ export default function OrderTracker({ activeOrderIds, onDismissOrder }) {
                   <div className="flex items-center space-x-3">
                     {/* Status Badge */}
                     <span
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
-                        isReady
+                      className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${isReady
                           ? 'bg-amber-500 text-white animate-pulse'
                           : isCompleted
-                          ? 'bg-[#2D5A43] text-white'
-                          : order.status === 'preparing'
-                          ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                          : 'bg-[#E8EFEA] text-[#2D5A43] border border-[#D1E0D7]'
-                      }`}
+                            ? 'bg-[#2D5A43] text-white'
+                            : order.status === 'preparing'
+                              ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                              : 'bg-[#E8EFEA] text-[#2D5A43] border border-[#D1E0D7]'
+                        }`}
                     >
                       {order.status === 'ready' ? '🔔 Ready at Counter!' : order.status}
                     </span>
@@ -162,27 +161,25 @@ export default function OrderTracker({ activeOrderIds, onDismissOrder }) {
                       return (
                         <div
                           key={step.key}
-                          className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
-                            isCurrent
+                          className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${isCurrent
                               ? isReady
                                 ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-300'
                                 : 'bg-[#E8EFEA]/60 border-[#2D5A43]/40 ring-1 ring-[#2D5A43]/20'
                               : isPastOrCurrent
-                              ? 'bg-[#FAF8F5] border-[#E8E4DA]'
-                              : 'bg-[#FAF9F6]/50 border-dashed border-[#E0DCD4] opacity-50'
-                          }`}
+                                ? 'bg-[#FAF8F5] border-[#E8E4DA]'
+                                : 'bg-[#FAF9F6]/50 border-dashed border-[#E0DCD4] opacity-50'
+                            }`}
                         >
                           <div className="flex items-center justify-between mb-2">
                             <div
-                              className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs ${
-                                isCurrent
+                              className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs ${isCurrent
                                   ? isReady
                                     ? 'bg-amber-500 text-white shadow-xs'
                                     : 'bg-[#2D5A43] text-white shadow-xs'
                                   : isPastOrCurrent
-                                  ? 'bg-[#E8EFEA] text-[#2D5A43]'
-                                  : 'bg-[#EBE7DF] text-[#8C928B]'
-                              }`}
+                                    ? 'bg-[#E8EFEA] text-[#2D5A43]'
+                                    : 'bg-[#EBE7DF] text-[#8C928B]'
+                                }`}
                             >
                               <Icon className="w-3.5 h-3.5" />
                             </div>

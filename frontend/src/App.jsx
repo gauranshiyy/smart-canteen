@@ -1,3 +1,4 @@
+import { API_URL } from './config';
 import React, { useState, useEffect, useCallback } from 'react'
 import Navbar from './components/Navbar'
 import StatusCard from './components/StatusCard'
@@ -115,7 +116,7 @@ export default function App() {
     const startTime = performance.now()
 
     try {
-      const res = await fetch(API_URL + '/', {
+      const res = await fetch('http://localhost:8000/', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

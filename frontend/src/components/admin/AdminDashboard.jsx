@@ -1,3 +1,4 @@
+import { API_URL } from '../../config';
 import React, { useState, useEffect } from 'react'
 import AdminItemModal from './AdminItemModal'
 import AdminOrdersTab from './AdminOrdersTab'
@@ -241,11 +242,10 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
         <div className="flex items-center space-x-2 mt-8 pt-6 border-t border-[#EFECE6]">
           <button
             onClick={() => setActiveTab('orders')}
-            className={`inline-flex items-center space-x-2 px-5 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition cursor-pointer ${
-              activeTab === 'orders'
+            className={`inline-flex items-center space-x-2 px-5 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition cursor-pointer ${activeTab === 'orders'
                 ? 'bg-[#1C1F1B] text-white shadow-sm'
                 : 'bg-[#FAF8F5] border border-[#E8E4DA] text-[#555C54] hover:bg-[#F2EFE9]'
-            }`}
+              }`}
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>Incoming Orders</span>
@@ -258,11 +258,10 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
 
           <button
             onClick={() => setActiveTab('menu')}
-            className={`inline-flex items-center space-x-2 px-5 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition cursor-pointer ${
-              activeTab === 'menu'
+            className={`inline-flex items-center space-x-2 px-5 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition cursor-pointer ${activeTab === 'menu'
                 ? 'bg-[#1C1F1B] text-white shadow-sm'
                 : 'bg-[#FAF8F5] border border-[#E8E4DA] text-[#555C54] hover:bg-[#F2EFE9]'
-            }`}
+              }`}
           >
             <Layers className="w-3.5 h-3.5" />
             <span>Menu & Availability ({items.length})</span>
@@ -379,9 +378,8 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
                     filteredItems.map((item) => (
                       <tr
                         key={item.id}
-                        className={`hover:bg-[#FAF8F5]/80 transition-colors ${
-                          !item.is_available ? 'bg-neutral-50/50' : ''
-                        }`}
+                        className={`hover:bg-[#FAF8F5]/80 transition-colors ${!item.is_available ? 'bg-neutral-50/50' : ''
+                          }`}
                       >
                         {/* Dish & Thumbnail */}
                         <td className="py-4 px-6">
@@ -409,16 +407,14 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
                         {/* Veg / Non-Veg */}
                         <td className="py-4 px-4">
                           <span
-                            className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${
-                              item.is_veg
+                            className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${item.is_veg
                                 ? 'bg-[#E8EFEA] text-[#2D5A43] border border-[#CDE0D4]'
                                 : 'bg-[#FDE8E8] text-[#991B1B] border border-[#F8B4B4]'
-                            }`}
+                              }`}
                           >
                             <span
-                              className={`w-1.5 h-1.5 rounded-full ${
-                                item.is_veg ? 'bg-[#2D5A43]' : 'bg-[#991B1B]'
-                              }`}
+                              className={`w-1.5 h-1.5 rounded-full ${item.is_veg ? 'bg-[#2D5A43]' : 'bg-[#991B1B]'
+                                }`}
                             />
                             <span>{item.is_veg ? 'VEG' : 'NON-VEG'}</span>
                           </span>
@@ -450,16 +446,14 @@ export default function AdminDashboard({ adminPassword, onLogout, onSwitchToStud
                           <button
                             type="button"
                             onClick={() => handleToggleAvailability(item)}
-                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold transition shadow-xs cursor-pointer ${
-                              item.is_available
+                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold transition shadow-xs cursor-pointer ${item.is_available
                                 ? 'bg-[#E8EFEA] hover:bg-[#D4E4D8] text-[#2D5A43] border border-[#CDE0D4]'
                                 : 'bg-neutral-800 hover:bg-neutral-900 text-neutral-200 border border-neutral-700'
-                            }`}
+                              }`}
                           >
                             <span
-                              className={`w-2 h-2 rounded-full mr-1.5 ${
-                                item.is_available ? 'bg-emerald-500' : 'bg-red-400'
-                              }`}
+                              className={`w-2 h-2 rounded-full mr-1.5 ${item.is_available ? 'bg-emerald-500' : 'bg-red-400'
+                                }`}
                             />
                             <span>{item.is_available ? 'In Stock' : 'Sold Out'}</span>
                           </button>

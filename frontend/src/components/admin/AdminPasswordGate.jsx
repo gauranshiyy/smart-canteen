@@ -1,3 +1,4 @@
+import { API_URL } from '../../config';
 import React, { useState } from 'react'
 import { Lock, ArrowRight, ShieldAlert, KeyRound, Sparkles } from 'lucide-react'
 

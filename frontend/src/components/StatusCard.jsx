@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React from 'react'
 import { CheckCircle2, XCircle, RefreshCw, Database, Server, Clock, AlertTriangle } from 'lucide-react'
 
@@ -10,13 +11,12 @@ export default function StatusCard({ status, loading, latency, error, responseDa
         <div className="flex items-center space-x-3">
           {/* Status Indicator Icon */}
           <div
-            className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
-              isConnected
+            className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${isConnected
                 ? 'bg-[#E8EFEA] text-[#2D5A43]'
                 : loading
-                ? 'bg-[#F2EFE9] text-[#7A8078]'
-                : 'bg-[#FDE8E8] text-[#C81E1E]'
-            }`}
+                  ? 'bg-[#F2EFE9] text-[#7A8078]'
+                  : 'bg-[#FDE8E8] text-[#C81E1E]'
+              }`}
           >
             {isConnected ? (
               <CheckCircle2 className="w-6 h-6" />
@@ -34,14 +34,12 @@ export default function StatusCard({ status, loading, latency, error, responseDa
               </span>
               <span className="inline-block w-2 h-2 rounded-full relative">
                 <span
-                  className={`absolute inset-0 rounded-full animate-ping opacity-75 ${
-                    isConnected ? 'bg-emerald-500' : 'bg-red-500'
-                  }`}
+                  className={`absolute inset-0 rounded-full animate-ping opacity-75 ${isConnected ? 'bg-emerald-500' : 'bg-red-500'
+                    }`}
                 />
                 <span
-                  className={`relative inline-block w-2 h-2 rounded-full ${
-                    isConnected ? 'bg-emerald-600' : 'bg-red-600'
-                  }`}
+                  className={`relative inline-block w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-600' : 'bg-red-600'
+                    }`}
                 />
               </span>
             </div>

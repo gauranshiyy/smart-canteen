@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import MenuItemCard from './MenuItemCard'
 import TopPicksSection from './TopPicksSection'
@@ -242,22 +243,20 @@ export default function MenuBrowse({ onOrder }) {
               <button
                 type="button"
                 onClick={() => setDiet('all')}
-                className={`py-2 px-2 text-xs font-semibold rounded-xl transition-all cursor-pointer ${
-                  diet === 'all'
+                className={`py-2 px-2 text-xs font-semibold rounded-xl transition-all cursor-pointer ${diet === 'all'
                     ? 'bg-[#2D5A43] text-white shadow-xs'
                     : 'text-[#5F655E] hover:text-[#1C1F1B]'
-                }`}
+                  }`}
               >
                 All
               </button>
               <button
                 type="button"
                 onClick={() => setDiet('veg')}
-                className={`py-2 px-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center space-x-1 cursor-pointer ${
-                  diet === 'veg'
+                className={`py-2 px-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center space-x-1 cursor-pointer ${diet === 'veg'
                     ? 'bg-[#2D5A43] text-white shadow-xs'
                     : 'text-[#5F655E] hover:text-[#1C1F1B]'
-                }`}
+                  }`}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
                 <span>Veg</span>
@@ -265,11 +264,10 @@ export default function MenuBrowse({ onOrder }) {
               <button
                 type="button"
                 onClick={() => setDiet('non-veg')}
-                className={`py-2 px-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center space-x-1 cursor-pointer ${
-                  diet === 'non-veg'
+                className={`py-2 px-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center space-x-1 cursor-pointer ${diet === 'non-veg'
                     ? 'bg-[#2D5A43] text-white shadow-xs'
                     : 'text-[#5F655E] hover:text-[#1C1F1B]'
-                }`}
+                  }`}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
                 <span>Non-veg</span>

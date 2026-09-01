@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useEffect } from 'react'
 import { Search, Sparkles, Clock, Star, Flame, Coffee, Utensils } from 'lucide-react'
 
@@ -104,11 +105,10 @@ export default function MenuSection() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  active
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${active
                     ? 'bg-[#1C1F1B] text-white shadow-sm'
                     : 'bg-white hover:bg-[#EBE7DF] text-[#1C1F1B] border border-[#E0DBD0]'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -162,11 +162,10 @@ export default function MenuSection() {
                     </div>
 
                     <span
-                      className={`text-[11px] font-bold tracking-wider px-2.5 py-1 rounded-md uppercase ${
-                        item.is_veg
+                      className={`text-[11px] font-bold tracking-wider px-2.5 py-1 rounded-md uppercase ${item.is_veg
                           ? 'bg-[#E8EFEA] text-[#2D5A43] border border-[#D1E0D7]'
                           : 'bg-[#FDE8E8] text-[#991B1B] border border-[#F8B4B4]'
-                      }`}
+                        }`}
                     >
                       {item.is_veg ? 'VEG' : 'NON-VEG'}
                     </span>

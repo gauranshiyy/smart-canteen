@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState, useEffect } from 'react'
 import {
   X,
@@ -176,9 +177,8 @@ export default function OrderModal({ isOpen, onClose, item, onOrderPlaced }) {
                 <div className="flex-1">
                   <div className="flex items-center space-x-2">
                     <span
-                      className={`inline-block w-2 h-2 rounded-full ${
-                        item.is_veg ? 'bg-[#2D5A43]' : 'bg-[#991B1B]'
-                      }`}
+                      className={`inline-block w-2 h-2 rounded-full ${item.is_veg ? 'bg-[#2D5A43]' : 'bg-[#991B1B]'
+                        }`}
                     />
                     <span className="text-xs text-[#7A8078] capitalize font-medium">
                       {item.category}

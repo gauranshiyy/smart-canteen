@@ -1,3 +1,4 @@
+import { API_URL } from '../../config';
 import React, { useState, useEffect, useCallback } from 'react'
 import {
   Clock,
@@ -120,11 +121,10 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
         {/* Placed / New Orders */}
         <div
           onClick={() => setStatusFilter(statusFilter === 'placed' ? 'all' : 'placed')}
-          className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
-            placedCount > 0
+          className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${placedCount > 0
               ? 'bg-amber-50/80 border-amber-300 ring-2 ring-amber-400/30'
               : 'bg-white border-[#E8E4DA]'
-          } ${statusFilter === 'placed' ? 'ring-2 ring-amber-500' : ''}`}
+            } ${statusFilter === 'placed' ? 'ring-2 ring-amber-500' : ''}`}
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-amber-800 flex items-center space-x-1">
@@ -146,9 +146,8 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
         {/* Preparing */}
         <div
           onClick={() => setStatusFilter(statusFilter === 'preparing' ? 'all' : 'preparing')}
-          className={`p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E4DA] transition-all cursor-pointer ${
-            statusFilter === 'preparing' ? 'ring-2 ring-[#2D5A43] bg-[#FAF8F5]' : ''
-          }`}
+          className={`p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E4DA] transition-all cursor-pointer ${statusFilter === 'preparing' ? 'ring-2 ring-[#2D5A43] bg-[#FAF8F5]' : ''
+            }`}
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#555C54]">
@@ -167,9 +166,8 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
         {/* Ready */}
         <div
           onClick={() => setStatusFilter(statusFilter === 'ready' ? 'all' : 'ready')}
-          className={`p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E4DA] transition-all cursor-pointer ${
-            statusFilter === 'ready' ? 'ring-2 ring-emerald-500 bg-[#FAF8F5]' : ''
-          }`}
+          className={`p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E4DA] transition-all cursor-pointer ${statusFilter === 'ready' ? 'ring-2 ring-emerald-500 bg-[#FAF8F5]' : ''
+            }`}
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#2D5A43]">
@@ -188,9 +186,8 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
         {/* Completed */}
         <div
           onClick={() => setStatusFilter(statusFilter === 'completed' ? 'all' : 'completed')}
-          className={`p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E4DA] transition-all cursor-pointer ${
-            statusFilter === 'completed' ? 'ring-2 ring-neutral-700 bg-[#FAF8F5]' : ''
-          }`}
+          className={`p-4 sm:p-5 rounded-2xl bg-white border border-[#E8E4DA] transition-all cursor-pointer ${statusFilter === 'completed' ? 'ring-2 ring-neutral-700 bg-[#FAF8F5]' : ''
+            }`}
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#7A8078]">
@@ -237,11 +234,10 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
               <button
                 key={st}
                 onClick={() => setStatusFilter(st)}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold capitalize transition cursor-pointer ${
-                  statusFilter === st
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold capitalize transition cursor-pointer ${statusFilter === st
                     ? 'bg-[#2D5A43] text-white shadow-xs'
                     : 'bg-[#FAF8F5] border border-[#DCD6CA] text-[#555C54] hover:bg-[#F2EFE9]'
-                }`}
+                  }`}
               >
                 {st === 'all' ? 'All Orders' : st}
               </button>
@@ -300,13 +296,12 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
                   return (
                     <tr
                       key={order.id}
-                      className={`transition-colors ${
-                        isNew
+                      className={`transition-colors ${isNew
                           ? 'bg-amber-50/70 hover:bg-amber-50/90 font-medium'
                           : isReady
-                          ? 'bg-emerald-50/40 hover:bg-emerald-50/60'
-                          : 'hover:bg-[#FAF8F5]/80'
-                      }`}
+                            ? 'bg-emerald-50/40 hover:bg-emerald-50/60'
+                            : 'hover:bg-[#FAF8F5]/80'
+                        }`}
                     >
                       {/* Order ID & New Badge */}
                       <td className="py-4 px-6">
@@ -365,15 +360,14 @@ export default function AdminOrdersTab({ adminPassword, showToast }) {
                           value={order.status}
                           disabled={updatingOrderId === order.id}
                           onChange={(e) => handleUpdateStatus(order.id, e.target.value)}
-                          className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border cursor-pointer transition outline-none ${
-                            isNew
+                          className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border cursor-pointer transition outline-none ${isNew
                               ? 'bg-amber-100 text-amber-900 border-amber-300'
                               : isPreparing
-                              ? 'bg-amber-50 text-amber-800 border-amber-300'
-                              : isReady
-                              ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
-                              : 'bg-neutral-100 text-neutral-800 border-neutral-300'
-                          }`}
+                                ? 'bg-amber-50 text-amber-800 border-amber-300'
+                                : isReady
+                                  ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                                  : 'bg-neutral-100 text-neutral-800 border-neutral-300'
+                            }`}
                         >
                           <option value="placed">Placed 📋</option>
                           <option value="preparing">Preparing 🍳</option>
